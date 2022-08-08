@@ -1,0 +1,67 @@
+<div class="column">
+  <label *ngIf="label">{{ label }}</label>
+
+  <div class="time-picker">
+    <button
+      (click)="openPopup(timePicker)"
+      type="button"
+      class="time-picker-toggle"
+      mat-icon-button
+      matPrefix
+    >
+      <img src="../assets/clock.svg" alt="clock" />
+    </button>
+
+    <input
+      #timePicker
+      (click)="openPopup(timePicker)"
+      type="time"
+      class="time-picker-input"
+      [class.ng-invalid]="control.invalid"
+      matInput
+    />
+
+    <button
+      (click)="openPopup(timePicker)"
+      type="button"
+      class="time-picker-toggle"
+      [class.rotated]="isVisible"
+      mat-icon-button
+      matSuffix
+    >
+      <img src="../assets/caret-down.svg" alt="caret down" />
+    </button>
+
+    <div class="time-picker-popup" [class.visible]="isVisible">
+      <span #hoursPicker class="scroll hours">
+        <span *ngFor="let hour of hours.slice(-2)" class="inactive">
+          {{ hour | leadingZero }}
+        </span>
+
+        <span *ngFor="let hour of hours">
+          {{ hour | leadingZero }}
+        </span>
+
+        <span *ngFor="let hour of hours.slice(0, 2)" class="inactive">
+          {{ hour | leadingZero }}
+        </span>
+      </span>
+
+      <span class="semicolon">:</span>
+
+      <span #minutesPicker class="scroll minutes">
+        <span *ngFor="let minute of minutes.slice(-2)" class="inactive">
+          {{ minute | leadingZero }}
+        </span>
+
+        <span *ngFor="let minute of minutes">
+          {{ minute | leadingZero }}
+        </span>
+
+        <span *ngFor="let minute of minutes.slice(0, 2)" class="inactive">
+          {{ minute | leadingZero }}
+        </span>
+      </span>
+    </div>
+  </div>
+</div>

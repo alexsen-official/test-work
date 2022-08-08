@@ -1,0 +1,15 @@
+.city-select {
+  margin-top: 56px;
+}
+
+.perpetual-checkbox {
+  margin-top: 8px;
+}
+
+:host::ng-deep {
+  .mat-card {
+    > :last-child:not(.mat-card-footer) {
+      margin-bottom: 238px;
+    }
+  }
+}

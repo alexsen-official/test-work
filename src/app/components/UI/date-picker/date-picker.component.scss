@@ -1,0 +1,89 @@
+@import "src/scss/variables.scss";
+
+.datepicker {
+  position: relative;
+}
+
+.mat-datepicker-input {
+  width: 250px;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.mat-datepicker-toggle {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+}
+
+::ng-deep {
+  mat-datepicker-content.mat-datepicker-content {
+    border-radius: 12px;
+    background-color: $background-color;
+
+    .mat {
+      &-calendar {
+        width: 344px;
+
+        &-header {
+          padding: 32px 32px 0 32px;
+        }
+
+        &-controls {
+          margin-top: 0;
+          justify-content: center;
+        }
+
+        &-period-button {
+          background-color: $primary-color;
+          border-bottom-left-radius: 0;
+          border-bottom-right-radius: 0;
+        }
+
+        &-arrow {
+          mask: url("../../../../assets/arrow-down.svg");
+          fill: $text-color;
+        }
+
+        &-spacer,
+        &-previous-button,
+        &-next-button {
+          display: none;
+        }
+
+        &-content {
+          padding: 0 32px;
+        }
+
+        &-body {
+          &-label {
+            display: none;
+          }
+
+          &-cell-content {
+            border-radius: 12px;
+          }
+
+          &-selected {
+            font-weight: 600;
+          }
+        }
+      }
+
+      &-datepicker-actions {
+        padding: 8px 32px 32px 32px;
+        gap: 8px;
+        flex-direction: column-reverse;
+        align-items: stretch;
+
+        .mat-button-base {
+          margin-left: 0;
+
+          &:not(.mat-primary) {
+            background-color: $card-color;
+          }
+        }
+      }
+    }
+  }
+}

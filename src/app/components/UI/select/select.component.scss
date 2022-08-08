@@ -1,0 +1,41 @@
+.select {
+  max-width: 340px;
+  position: relative;
+
+  &-icon {
+    max-width: 16px;
+    min-height: 20px;
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  &-label {
+    gap: 8px;
+    display: flex;
+    align-items: center;
+
+    &-icon {
+      cursor: help;
+      transition: opacity 0.2s ease-in-out;
+
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+  }
+}
+
+:host::ng-deep {
+  .mat-select {
+    &-trigger {
+      min-height: 68px;
+    }
+
+    &-arrow {
+      display: none;
+    }
+  }
+}

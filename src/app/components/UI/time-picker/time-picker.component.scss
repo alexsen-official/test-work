@@ -1,0 +1,93 @@
+@import "src/scss/variables.scss";
+
+.time-picker {
+  position: relative;
+
+  &-toggle {
+    position: absolute;
+    top: 12px;
+
+    &[matPrefix] {
+      left: 12px;
+    }
+
+    &[matSuffix] {
+      right: 12px;
+      transition: transform 0.2s ease-in-out;
+
+      &.rotated {
+        transform: rotate(180deg);
+      }
+    }
+  }
+
+  &-input {
+    min-width: 250px;
+    max-height: 68px;
+    font-family: $font-family;
+    text-align: center;
+    box-sizing: border-box;
+    cursor: text;
+
+    &::-webkit-calendar-picker-indicator {
+      display: none;
+    }
+  }
+
+  &-popup {
+    max-height: 224px;
+    min-width: 250px;
+    padding: 32px;
+    gap: 4px;
+    font-size: 24px;
+    line-height: 32px;
+    font-weight: 600;
+    position: absolute;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+    border-radius: 12px;
+    box-sizing: border-box;
+    background-color: $background-color;
+
+    .semicolon {
+      display: flex;
+      align-items: center;
+    }
+
+    &:not(.visible) {
+      display: none;
+    }
+  }
+}
+
+.scroll {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+
+  &.hours {
+    align-items: flex-end;
+  }
+
+  &.minutes {
+    align-items: flex-start;
+  }
+
+  > span {
+    scroll-snap-align: center;
+
+    &.inactive {
+      opacity: 0.5;
+    }
+  }
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}

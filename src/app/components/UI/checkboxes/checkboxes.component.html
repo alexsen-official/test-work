@@ -1,0 +1,11 @@
+<div class="column">
+  <label *ngIf="label">{{ label }}</label>
+
+  <div class="row">
+    <ng-container *ngFor="let option of options">
+      <mat-checkbox (change)="onChange($event)" [value]="option">
+        {{ option }}
+      </mat-checkbox>
+    </ng-container>
+  </div>
+</div>

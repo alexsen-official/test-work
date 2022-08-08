@@ -1,0 +1,33 @@
+<div class="column">
+  <label *ngIf="label">{{ label }}</label>
+
+  <div class="datepicker">
+    <input
+      (click)="datepicker.open()"
+      [matDatepicker]="datepicker"
+      [formControl]="control"
+      [min]="min"
+      [max]="max"
+      readonly
+      matInput
+    />
+
+    <mat-datepicker-toggle [for]="datepicker">
+      <img
+        src="../assets/calendar.svg"
+        alt="calendar"
+        matDatepickerToggleIcon
+      />
+    </mat-datepicker-toggle>
+
+    <mat-datepicker #datepicker>
+      <mat-datepicker-actions>
+        <button mat-button matDatepickerCancel>Отменить</button>
+
+        <button color="primary" mat-flat-button matDatepickerApply>
+          Установить дату
+        </button>
+      </mat-datepicker-actions>
+    </mat-datepicker>
+  </div>
+</div>

@@ -1,0 +1,24 @@
+<div class="column">
+  <span class="select-label">
+    <label *ngIf="label">{{ label }}</label>
+
+    <img
+      *ngIf="tooltip"
+      [matTooltip]="tooltip"
+      src="../assets/tooltip.svg"
+      class="select-label-icon"
+      matTooltipPosition="right"
+      alt="tooltip"
+    />
+  </span>
+
+  <div class="select">
+    <img src="../assets/caret-down.svg" class="select-icon" alt="caret down" />
+
+    <mat-select [formControl]="control">
+      <mat-option *ngFor="let option of options" [value]="option">
+        {{ option }}
+      </mat-option>
+    </mat-select>
+  </div>
+</div>

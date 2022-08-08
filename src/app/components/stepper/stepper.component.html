@@ -1,0 +1,34 @@
+<div class="stepper-wrapper">
+  <mat-stepper #stepper orientation="vertical">
+    <mat-step [stepControl]="settingsForm">
+      <app-settings-form [form]="settingsForm"></app-settings-form>
+      <button color="primary" mat-flat-button matStepperNext>Продолжить</button>
+    </mat-step>
+
+    <mat-step>
+      <app-card>
+        <mat-card-title>Контент</mat-card-title>
+      </app-card>
+
+      <div class="stepper-actions">
+        <button mat-button matStepperPrevious>Назад</button>
+        <button color="primary" mat-flat-button>Продолжить</button>
+      </div>
+    </mat-step>
+  </mat-stepper>
+
+  <aside>
+    <app-card>
+      <ul class="steps">
+        <ng-container *ngFor="let step of steps; let i = index">
+          <li
+            (click)="stepper.selectedIndex = i"
+            [class.selected]="stepper.selectedIndex === i"
+          >
+            {{ step }}
+          </li>
+        </ng-container>
+      </ul>
+    </app-card>
+  </aside>
+</div>

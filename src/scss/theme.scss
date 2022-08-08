@@ -1,0 +1,56 @@
+@use "@angular/material" as mat;
+@import "./variables.scss";
+
+$theme-typography: mat.define-typography-config(
+  $font-family: "Montserrat",
+);
+
+@include mat.core($theme-typography);
+
+$mat-primary: (
+  main: $primary-color,
+  lighter: lighter($primary-color, 20%),
+  darker: darker($primary-color, 20%),
+  200: $primary-color,
+  contrast: (
+    main: $text-color,
+  ),
+);
+
+$mat-accent: (
+  main: $accent-color,
+  lighter: lighter($accent-color, 20%),
+  darker: darker($accent-color, 20%),
+  200: $accent-color,
+  contrast: (
+    main: $text-color,
+  ),
+);
+
+$theme-primary: mat.define-palette($mat-primary, main, lighter, darker);
+$theme-accent: mat.define-palette($mat-accent, main, lighter, darker);
+$theme-warn: mat.define-palette(mat.$red-palette);
+
+$theme-foreground: (
+  base: $text-color,
+  text: $text-color,
+  disabled-text: rgba($text-color, 0.25),
+  disabled-button: rgba($text-color, 0.25),
+);
+
+$theme-background: (
+  background: $background-color,
+  card: $card-color,
+  disabled-button: $card-color,
+);
+
+$theme: (
+  primary: $theme-primary,
+  accent: $theme-accent,
+  warn: $theme-warn,
+  is-dark: true,
+  foreground: $theme-foreground,
+  background: $theme-background,
+);
+
+@include mat.all-component-themes($theme);

@@ -1,0 +1,108 @@
+@import "src/scss/variables.scss";
+
+.stepper {
+  &-wrapper {
+    gap: 80px;
+    display: flex;
+  }
+
+  &-actions {
+    gap: 32px;
+    display: flex;
+
+    button {
+      width: 100%;
+    }
+  }
+}
+
+.steps {
+  padding: 0;
+  gap: 32px;
+  display: flex;
+  flex-direction: column;
+  list-style-type: none;
+
+  li {
+    min-width: 270px;
+    margin-left: 52px;
+    padding: 20px;
+    font-size: 16px;
+    line-height: 20px;
+    font-weight: 700;
+    border: 1px solid $secondary-color;
+    border-radius: 12px;
+    position: relative;
+    transition: all 0.2s ease-in-out;
+
+    &:not(.selected) {
+      cursor: pointer;
+
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+
+    &.selected {
+      border-color: $primary-color;
+
+      &::before {
+        border-color: $primary-color;
+      }
+    }
+
+    &::before {
+      content: "";
+      padding: 4px;
+      border: 8px solid $secondary-color;
+      border-radius: 50%;
+      position: absolute;
+      top: 16px;
+      left: -52px;
+      background-color: $text-color;
+    }
+  }
+
+  &::before {
+    content: "";
+    padding: 1px;
+    height: 24px;
+    border-radius: 4px;
+    position: absolute;
+    top: calc(50% - 14px);
+    left: 44px;
+    background-color: #739fbe;
+  }
+}
+
+:host::ng-deep {
+  .mat {
+    &-vertical-content {
+      padding: 0;
+      gap: 32px;
+      display: flex;
+      flex-direction: column;
+
+      &-container {
+        margin-left: 0;
+      }
+    }
+
+    &-stepper-vertical {
+      background-color: $background-color;
+
+      &-line::before {
+        border: none;
+      }
+    }
+
+    &-step-header {
+      display: none;
+    }
+  }
+}
+
+button[matStepperNext] {
+  min-width: 412px;
+  margin-left: auto;
+}

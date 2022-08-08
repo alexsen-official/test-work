@@ -1,0 +1,55 @@
+<form [formGroup]="form">
+  <app-card>
+    <mat-card-title>Настройки</mat-card-title>
+
+    <div class="column">
+      <label for="name">Название баннера</label>
+      <input [formControl]="name" id="name" type="text" matInput />
+    </div>
+
+    <div class="row">
+      <div class="column">
+        <div class="row">
+          <app-date-picker
+            [control]="dateBegin"
+            [max]="dateEnd.value"
+          ></app-date-picker>
+
+          <app-date-picker
+            [control]="dateEnd"
+            [min]="dateBegin.value"
+          ></app-date-picker>
+        </div>
+
+        <mat-checkbox [formControl]="datePerpetual" class="perpetual-checkbox">
+          Бессрочная акция
+        </mat-checkbox>
+      </div>
+
+      <div class="column">
+        <div class="row">
+          <app-time-picker [control]="timeBegin"></app-time-picker>
+          <app-time-picker [control]="timeEnd"></app-time-picker>
+        </div>
+
+        <mat-checkbox [formControl]="timePerpetual" class="perpetual-checkbox">
+          Все время
+        </mat-checkbox>
+      </div>
+    </div>
+
+    <app-checkboxes
+      [options]="weekDays"
+      [formArray]="days"
+      label="Дни"
+    ></app-checkboxes>
+
+    <app-select
+      [options]="cities"
+      [control]="city"
+      label="Выберите город"
+      tooltip="Подсказка"
+      class="city-select"
+    ></app-select>
+  </app-card>
+</form>
