@@ -14,7 +14,7 @@ import {
   TimePickerComponent,
 } from './components';
 import { MaterialModule, RoutingModule } from './modules';
-import { HoursPipe, LeadingZeroPipe } from './pipes';
+import { LeadingZeroPipe } from './pipes';
 
 @NgModule({
   declarations: [
@@ -27,7 +27,6 @@ import { HoursPipe, LeadingZeroPipe } from './pipes';
     StepperComponent,
     TimePickerComponent,
 
-    HoursPipe,
     LeadingZeroPipe,
   ],
   imports: [
